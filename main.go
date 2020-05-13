@@ -13,6 +13,7 @@ func main() {
 	rs := &RenderSystem{}
 	hs := &HungerSystem{}
 	ds := &DecisionSystem{}
+	ds.Deciders = []Decider{HungerDecider}
 	w.AddSystem(rs)
 	w.AddSystem(hs)
 	w.AddSystem(ds)
