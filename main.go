@@ -21,8 +21,6 @@ func main() {
 	rs.Add(&bob)
 	hs.Add(&bob)
 
-	w.AddSystem(rs)
-	w.AddSystem(hs)
 	// run the world for 10 seconds
 	for i := 0; i < 10; i++ {
 		w.Update(1)
