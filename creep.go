@@ -8,24 +8,12 @@ import (
 type Creep struct {
 	ecs.BasicEntity
 	HungerComponent
+	IdentityComponent
 }
 
-// HungerComponent tracks how hungry an entity is.
-type HungerComponent struct {
-	hunger int
-}
-
-// Get returns the hunger value
-func (hc *HungerComponent) Get() int {
-	return hc.hunger
-}
-
-// Add increases hunger by the given amount
-func (hc *HungerComponent) Add(n int) {
-	hc.hunger += n
-}
-
-// Sub decreases hunger by the given amount
-func (hc *HungerComponent) Sub(n int) {
-	hc.hunger -= n
+// IdentityComponent contains name and psychology data for an entity.
+// My thinking is that PsychProfile can just have integers ( positive and negative ) to indicate inclinations towards whatever behaviors.
+type IdentityComponent struct {
+	Name         string
+	PsychProfile map[string]int
 }
