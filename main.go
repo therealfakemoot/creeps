@@ -14,9 +14,14 @@ func main() {
 	hs := &HungerSystem{}
 	ds := &DecisionSystem{}
 	ds.Deciders = []Decider{HungerDecider}
+
+	ss := &StipendSystem{}
+	ss.Stipends = []Stipend{FoodStipend}
+
 	w.AddSystem(rs)
 	w.AddSystem(hs)
 	w.AddSystem(ds)
+	w.AddSystem(ss)
 
 	bob := Creep{
 		BasicEntity:       ecs.NewBasic(),
@@ -26,15 +31,17 @@ func main() {
 	rs.Add(&bob)
 	hs.Add(&bob)
 	ds.Add(&bob)
+	ss.Add(&bob)
 
 	john := Creep{
 		BasicEntity:       ecs.NewBasic(),
-		HungerComponent:   HungerComponent{Hunger: 5, HungerFactor: 3},
+		HungerComponent:   HungerComponent{Hunger: 5, HungerFactor: 4},
 		IdentityComponent: IdentityComponent{Name: "John"},
 	}
 	rs.Add(&john)
 	hs.Add(&john)
 	ds.Add(&john)
+	ss.Add(&john)
 
 	var (
 		ticks int
