@@ -18,9 +18,11 @@ func main() {
 		HungerComponent:   HungerComponent{Hunger: 5},
 		IdentityComponent: IdentityComponent{Name: "Bob"},
 	}
-	rs.Add(bob)
-	hs.Add(bob)
+	rs.Add(&bob)
+	hs.Add(&bob)
 
+	w.AddSystem(rs)
+	w.AddSystem(hs)
 	// run the world for 10 seconds
 	for i := 0; i < 10; i++ {
 		w.Update(1)

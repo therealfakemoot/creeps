@@ -6,11 +6,11 @@ import (
 
 // BaseSystem helps centralize common functionality in systems.
 type BaseSystem struct {
-	entities []Creep
+	entities []*Creep
 }
 
 // Add appends an entity to the system
-func (bs *BaseSystem) Add(e Creep) {
+func (bs *BaseSystem) Add(e *Creep) {
 	bs.entities = append(bs.entities, e)
 }
 
