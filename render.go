@@ -12,10 +12,7 @@ type RenderSystem struct {
 
 // Update loops over
 func (rs *RenderSystem) Update(dt float32) {
-	rs.ticks++
-	fmt.Printf("tick #%d\n", rs.ticks)
 	for i := 0; i <= len(rs.entities)-1; i++ {
 		fmt.Printf("%s has hunger %d\n", rs.entities[i].Name, rs.entities[i].Hunger)
 	}
-	fmt.Println("=====")
 }
